@@ -7,13 +7,12 @@ pipeline {
         choice(name: 'BROWSER', choices:['chrome','edge', 'firefox'], description: "Choice the browser to execute your scripts")
     }
 
-    options{
-        ansiColor('xterm')
-    }
-
     stages{
         stage('Building') {
-            echo "Building the application"
+            steps{
+                echo "Building the application"
+            }
+
         }
         stage('Testing'){
             steps{
@@ -22,7 +21,9 @@ pipeline {
             }
         }
         stage('Deploying'){
-            echo "Deploying the application"
+            steps{
+                echo "Deploying the application"
+            }
         }
     }
 
